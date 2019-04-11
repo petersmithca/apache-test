@@ -1,0 +1,10 @@
+version: "2"
+
+services:
+
+  apache-local:
+    build:
+      .
+    ports:
+      - "80:80"
+    container_name: apache.local
