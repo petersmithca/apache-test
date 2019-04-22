@@ -22,7 +22,7 @@ EXPOSE 80
 
 #Add site configs
 ADD site.conf /etc/apache2/sites-enabled/site.conf
-ADD index.html /var/www/html/index.php
+ADD index.php /var/www/html/index.php
 RUN ln -fs /usr/share/zoneinfo/America/New_York /etc/localtime && dpkg-reconfigure -f noninteractive tzdata
 
 # start up apache in the foreground
