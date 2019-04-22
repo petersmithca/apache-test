@@ -7,9 +7,6 @@ RUN apt-get -y update && apt-get -y --allow-unauthenticated install rsyslog supe
 
 RUN a2enmod rewrite
 
-RUN echo "extension=mongodb.so" >> /etc/php/7.0/apache2/php.ini
-RUN echo "extension=mongo.so" >> /etc/php/7.0/apache2/php.ini
-
 ENV APACHE_RUN_USER www-data
 ENV APACHE_RUN_GROUP www-data
 ENV APACHE_LOG_DIR /var/log/apache2
@@ -20,7 +17,7 @@ EXPOSE 80
 
 #Add site configs
 ADD site.conf /etc/apache2/sites-enabled/site.conf
-ADD index.php /var/www/test/index.php
+ADD index.php /var/www/html/index.php
 RUN ln -fs /usr/share/zoneinfo/America/New_York /etc/localtime && dpkg-reconfigure -f noninteractive tzdata
 
 # start up apache in the foreground
