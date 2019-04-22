@@ -7,8 +7,6 @@ RUN apt-get -y update && apt-get -y --allow-unauthenticated install rsyslog supe
 
 RUN a2enmod rewrite
 
-RUN pecl install mongodb
-
 RUN echo "extension=mongodb.so" >> /etc/php/7.0/apache2/php.ini
 RUN echo "extension=mongo.so" >> /etc/php/7.0/apache2/php.ini
 
